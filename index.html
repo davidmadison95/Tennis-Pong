@@ -122,16 +122,13 @@
         });
         
         function getRandomSpawnPoint() {
+            // Always spawn at the center X position (on the center line)
+            const x = canvas.width / 2;
+            
             // Random Y position (avoiding edges)
             const minY = BALL_SIZE + 50;
             const maxY = canvas.height - BALL_SIZE - 50;
             const y = Math.random() * (maxY - minY) + minY;
-            
-            // Random X position (center-ish area to be fair)
-            const centerArea = canvas.width * 0.3; // 30% of width around center
-            const minX = (canvas.width - centerArea) / 2;
-            const maxX = (canvas.width + centerArea) / 2;
-            const x = Math.random() * (maxX - minX) + minX;
             
             return { x, y };
         }
